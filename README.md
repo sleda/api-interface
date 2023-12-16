@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# OpenAI Custom API Interface - sLeDa
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a custom user interface built with React to interact with OpenAIs' and other powerful models. It allows users to send prompts to the API's and receive responses, with support for uploading files and choosing between various AI models. It's also has GPT-4-Turbo 128k Model.
 
-## Available Scripts
+![Application Screenshot](https://github.com/sleda/api-interface/blob/master/screenshots/App.png)
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+Before you begin, ensure you have met the following requirements:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node.js (v16 or higher)
+- npm (v8 or higher)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+To install Custom API Interface, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/sleda/api-interface.git
+cd api-interface
+npm install
+```
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To use the application, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Start the application by running `npm start` in the terminal. This will launch the application in your default web browser.
+2. Choose an AI model from the dropdown menu at the top of the application.
+3. Enter a text prompt in the text area provided or upload a file containing your prompt.
+4. Click the 'Send' button to submit your prompt to the OpenAI API.
+5. The response from the API will be displayed in the 'Response' section below the prompt input area.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+- Multiple AI models will be available for future versions.
+- Text input for prompts.
+- File upload capability for prompts.
+- Responses displayed directly in the interface.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Screenshots
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="center">
+  <img src="https://github.com/sleda/api-interface/blob/master/screenshots/Selector.png" alt="Application Screenshot 2" width="45%">
+  <img src="https://github.com/sleda/api-interface/blob/master/screenshots/Response.png" alt="Application Screenshot 1" width="45%">
+</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Project Structure
 
-## Learn More
+- `App.tsx`: The root component that renders the application.
+- `APIForm.tsx`: The form component where users can input prompts and select AI models.
+- `APISelector.tsx`: The dropdown component for model selection.
+- `FileParser.tsx`: A utility component for parsing uploaded files.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions to this project are welcome. Please send pull requests or open an issue to discuss what you would like to change.
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
