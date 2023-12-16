@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Header from '../src/components/Header';
+import useOpenAI from './hooks/useOpenAI';
+import APIForm from './components/APIForm';
 import './App.css';
 
-function App() {
+
+const App: React.FC = () => {
+  const { response, error, isLoading, sendRequest } = useOpenAI();
+  const [systemContent, setSystemContent] = useState('');
+
+  const handleFormSubmit = (model: string, prompt: string) => {
+    if (!model || !model.trim()) {
+      alert('Please enter a valid model name.');
+      return;
+    }
+
+    sendRequest(model, prompt, systemContent);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <main className="app-main">
+        <APIForm onSubmit={handleFormSubmit} setSystemContent={setSystemContent} />
+        <div className="app-response-container">
+          {isLoading && <div className="loading">Loading...</div>}
+          {error && <p className="error">{error.message}</p>}
+          {response && <div className="response">{response}</div>}
+        </div>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
