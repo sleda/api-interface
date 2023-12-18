@@ -10,7 +10,9 @@ const useOpenAI = () => {
   const [error, setError] = useState<OpenAIError | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const openAIKey = process.env.OPENAI_SECRET;
+  const openAIKey = process.env.REACT_APP_OPENAI_SECRET;
+
+
 
   const sendRequest = async (model: string, prompt: string, systemContent: string) => {
     setIsLoading(true);

@@ -66,6 +66,7 @@ body, html, #root {
   max-height: 900px;
   /* Set overflow to auto to allow it to scroll if necessary */
   overflow: auto;
+  resize: none;
 }
 
 .error {
@@ -79,18 +80,18 @@ body, html, #root {
 /* Custom scrollbar styles */
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 14px; /* Width of the scrollbar */
+  width: 7px; /* Width of the scrollbar */
   
 }
 
 *::-webkit-scrollbar-track {
-  background: #333; /* Color of the scrollbar track */
+  background: transparent; /* Color of the scrollbar track */
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: #555; /* Color of the scrollbar thumb */
   border-radius: 20px; /* Roundness of the scrollbar thumb */
-  border: 3px solid #333; /* Creates padding around the scrollbar thumb */
+  border: 3px solid transparent; /* Creates padding around the scrollbar thumb */
 
 }
 

@@ -4,7 +4,7 @@ import './Header.css';
 const Header: React.FC = () => {
   return (
     <header>
-      <h1>sLeDa • API Interface</h1>
+      <h1>API Interface • sLeDa</h1>
       <p>A powerful and flexible interface for interacting with various APIs.</p>
     </header>
   );

@@ -25,7 +25,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex-grow: 1; /* Make api-selector-container same height as file-upload-btn */
+  flex-grow: 1;
 }
 
 .model-name {
@@ -38,7 +38,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 70%; /* Adjust width for model selector */
+  width: 70%;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -50,96 +50,57 @@
   cursor: pointer;
   margin: 2px;
   font-size: .9rem;
-  transition: background-color 0.3s; /* Smooth transition for background color */
+  transition: background-color 0.3s;
 }
 
 .model-select:hover {
-  background-color: #444; /* Slightly darker on hover */
+  background-color: #444;
 }
 
-.system-content-container {
-  
+.system-content-container,
+.prompt-container {
   position: relative;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 50%;
+  background-color: #0c0c0c8e; /* Arka plan rengi SYSTEM ile aynı */
+  border: 1px solid #181818c5; /* Kenarlık rengi SYSTEM ile aynı */
+  border-radius: 5px;
+  padding-top: 35px; /* label için yer açmak için padding-top değerini artırın */
+  overflow-y: auto;
 }
 
-.system-content-label {
-  flex-shrink: 0;
+.system-content-label,
+.prompt-label {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  z-index: 10;
   padding: 10px;
   font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-  color: #FFFFFF;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-}
-
-.system-content-input {
-  width: 100%;
-  background-color: #333;
-  border: 1px solid #555;
-  color: #90B8F8;
-  padding: 10px;
-  border-radius: 5px;
-  resize: none;
-  box-sizing: border-box;
-  margin: 2px;
-  /* Make prompt-input 50% of the page height by default */
-  height: calc(10vh - 10px);
-  /* Set max-height to prevent it from growing too large */
-  max-height: 500px;
-  /* Set overflow to auto to allow it to scroll if necessary */
-  overflow: auto;
-  /* Add padding to shift content down and accommodate SYSTEM text */
-  padding-top: 30px;
-}
-
-.prompt-container {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-
-}
-
-.prompt-user-label {
-  display: block;
-  background-color: #555;
   color: white;
-  padding: 5px 10px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  background-color: transparent; /* label arka planını şeffaf yap */
   font-size: 0.9rem;
-  font-weight: bold;
-  margin-bottom: -5px; /* Align with the textarea */
+  box-sizing: border-box;
 }
 
+.system-content-input,
 .prompt-input {
   width: 100%;
-  background-color: #333;
-  border: 1px solid #555;
+  background-color: transparent;
   color: #90B8F8;
-  padding: 10px;
-  border-radius: 5px;
-  resize: vertical; /* Allows the textarea to be resized vertically */
+  padding: 3px 10px;
+  padding-right: 50px; /* Gönder ikonu için sağda boşluk bırak */
+  resize: none; /* Elle boyutlandırma özelliğini kapat */
   box-sizing: border-box;
-  margin: 2px;
-  /* Adjustable height with minimum and maximum values */
-  min-height: 150px; /* Minimum height */
-  max-height: 800px; /* Maximum height */
-  overflow: auto;
-  
+  min-height: 70px; /* Başlangıç yüksekliği */
+  max-height: 255px;
+  overflow-y: auto; /* İçerik uzadıkça otomatik olarak boyutunun artması */
+  border: none;
+  outline: none;
 }
 
-
 .file-parser {
-  margin-left: 10px; /* Space between selector and parser */
+  margin-left: 10px;
 }
 
 .file-upload-btn {
@@ -148,48 +109,46 @@
   justify-content: center;
   background-color: #555;
   color: white;
-  padding: 8px; /* Reduced padding */
-  font-size: 0.8rem; /* Smaller font size */
+  padding: 8px;
+  font-size: 0.8rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  transition: background-color 0.3s;
 }
 
 .file-upload-btn:hover {
-  background-color: #666; /* Slightly darker on hover */
+  background-color: #666;
 }
 
-.prompt-input {
-  width: 100%;
-  background-color: #333;
-  border: 1px solid #555;
-  color: #90B8F8;
-  padding: 10px;
-  border-radius: 5px;
-  resize: none;
-  box-sizing: border-box;
-  margin: 2px;
-  /* Make prompt-input 50% of the page height by default */
-  height: calc(50vh - 30px);
-  /* Set max-height to prevent it from growing too large */
-  max-height: 500px;
-  /* Set overflow to auto to allow it to scroll if necessary */
-  overflow: auto;
-}
+
+
 
 .send-button {
-  width: 100%;
-  padding: 15px 20px;
-  background-color: #2D405949;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
+  position: absolute;
+  right: 10px; /* Sağa yasla */
+  top: 50%; /* Orta konum */
+  transform: translateY(-50%); /* Dikey ortala */
+  -webkit-transform: translateY(-50%);
+  width: 36px; /* Butonun genişliğini ayarla */
+  height: 36px; /* Butonun yüksekliğini ayarla */
+  border: none; /* Kenarlıkları kaldır */
+  background-color: #555; /* Arka plan rengi */
+  color: white; /* İkon rengi */
+  border-radius: 4px; /* Kenar yuvarlaklığı */
+  cursor: pointer; /* İmleç tipi */
+  outline: none; /* Odaklanma çerçevesini kaldır */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: currentColor;
 }
 
-.send-button:hover {
-  background-color: #2d4059;
+.send-button:hover,
+.send-button:focus {
+  background-color: #666; /* Üzerine gelince arka plan rengi */
+  
 }
+
 
 .dropdown-menu {
   position: absolute;
@@ -215,6 +174,7 @@
   border-radius: 4px;
   margin: 5px;
 }
+
 .dropdown-item:hover {
   background-color: #555;
   border-radius: 8px;
